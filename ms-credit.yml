@@ -10,8 +10,6 @@ spring:
       auto-index-creation: 'true'
       database: mscredit
       host: localhost
-  config:
-    import: optional:configserver:http://localhost:8090
   application:
     name: ms-credit
 logging:
