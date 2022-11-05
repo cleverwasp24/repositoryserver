@@ -16,8 +16,6 @@ spring:
       auto-index-creation: 'true'
       database: mswallet
       host: localhost
-  config:
-    import: optional:configserver:http://localhost:8090
   application:
     name: ms-wallet
 logging:
