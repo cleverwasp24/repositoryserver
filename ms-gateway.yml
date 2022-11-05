@@ -1,0 +1,52 @@
+server:
+  port: 8088
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8089/eureka
+spring:
+  application:
+    name: ms-gateway
+  cloud:
+    gateway:
+      default-filters:
+      - name: MsGatewayGlobalFilter
+      routes:
+        - id: ms-client
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/bootcamp/client/**
+          filters:
+          - name: MsGatewayPreFilter
+          - name: MsGatewayPostFilter
+        - id: ms-account
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/bootcamp/account/**,/bootcamp/accountTransaction/**
+          filters:
+          - name: MsGatewayPreFilter
+          - name: MsGatewayPostFilter
+        - id: ms-credit
+          uri: http://localhost:8083/
+          predicates:
+            - Path=/bootcamp/loan/**,/bootcamp/loanPayment/**
+          filters:
+            - name: MsGatewayPreFilter
+            - name: MsGatewayPostFilter
+        - id: ms-card
+          uri: http://localhost:8084/
+          predicates:
+            - Path=/bootcamp/card/**,/bootcamp/cardTransaction/**
+          filters:
+            - name: MsGatewayPreFilter
+            - name: MsGatewayPostFilter
+        - id: ms-wallet
+          uri: http://localhost:8085/
+          predicates:
+            - Path=/bootcamp/wallet/**,/bootcamp/walletTransaction/**
+          filters:
+            - name: MsGatewayPreFilter
+            - name: MsGatewayPostFilter
+logging:
+  level:
+    '[com.nttdata.bootcamp.msgateway]': Info
