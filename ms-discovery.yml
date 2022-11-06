@@ -1,14 +1,16 @@
 server:
   port: 8089
+spring:
+  application:
+    name: ms-discovery
 eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8089/eureka
+      defaultZone: http://ms-discovery:8089/eureka
   server:
     waitTimeInMsWhenSyncEmpty: 0
-
 logging:
   level:
     '[com.netflix.eureka]': 'OFF'
