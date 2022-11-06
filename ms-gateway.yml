@@ -10,22 +10,22 @@ spring:
   cloud:
     gateway:
       default-filters:
-      - name: MsGatewayGlobalFilter
+        - name: MsGatewayGlobalFilter
       routes:
         - id: ms-client
           uri: http://ms-client:8081/
           predicates:
             - Path=/bootcamp/client/**
           filters:
-          - name: MsGatewayPreFilter
-          - name: MsGatewayPostFilter
+            - name: MsGatewayPreFilter
+            - name: MsGatewayPostFilter
         - id: ms-account
           uri: http://ms-account:8082/
           predicates:
             - Path=/bootcamp/account/**,/bootcamp/accountTransaction/**
           filters:
-          - name: MsGatewayPreFilter
-          - name: MsGatewayPostFilter
+            - name: MsGatewayPreFilter
+            - name: MsGatewayPostFilter
         - id: ms-credit
           uri: http://ms-credit:8083/
           predicates:
