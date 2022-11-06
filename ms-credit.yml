@@ -26,7 +26,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8089/eureka/
+      defaultZone: http://ms-discovery:8089/eureka/
 resilience4j:
   circuitbreaker:
     configs:
