@@ -47,6 +47,13 @@ spring:
           filters:
             - name: MsGatewayPreFilter
             - name: MsGatewayPostFilter
+        - id: ms-crypto
+          uri: http://ms-crypto:8086/
+          predicates:
+            - Path=/bootcamp/cryptoWallet/**,/bootcamp/cryptoWalletTransaction/**
+          filters:
+            - name: MsGatewayPreFilter
+            - name: MsGatewayPostFilter
 logging:
   level:
     '[com.nttdata.bootcamp.msgateway]': Info
