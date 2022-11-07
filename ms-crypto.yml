@@ -16,8 +16,6 @@ spring:
       auto-index-creation: 'true'
       database: mscrypto
       host: mongodb
-  config:
-    import: optional:configserver:http://config-server:8090
   application:
     name: ms-crypto
 logging:
